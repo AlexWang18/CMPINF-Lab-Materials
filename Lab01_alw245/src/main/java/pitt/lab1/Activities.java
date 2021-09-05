@@ -30,6 +30,9 @@ public class Activities {
             System.out.println(var);
         }
 
+
+        System.out.println(convertSeconds(12345));
+
         int radius = 5;
         System.out.println(getVolumeSphere(radius));
 
@@ -57,17 +60,17 @@ public class Activities {
 
         /*
          *
-         * ACTIVITY 7
+         * ACTIVITY 6
          *
          */
-        /*
-         * for (double angle = -180; angle <= 180; angle++) { System.out.println(angle +
-         * "    " + Math.sin(angle * Math.PI / 180)); }
-         */
+
+        for (double angle = -180; angle <= 180; angle++) {
+            System.out.println(angle + "    " + Math.sin(angle * Math.PI / 180));
+        }
 
         /*
          *
-         * ACTIVITY 8
+         * ACTIVITY 7
          *
          */
         String[] names = { "Charlie", "Bill", "Jim", "Jeffrey", "Charzard" };
@@ -75,6 +78,11 @@ public class Activities {
             System.out.println(string);
         }
 
+        /*
+         *
+         * ACTIVITY 8
+         *
+         */
         System.out.println("Enter a num btw 10 and 20");
         try (Scanner sc = new Scanner(System.in)) {
             int input = Integer.parseInt(sc.nextLine());
@@ -100,15 +108,15 @@ public class Activities {
          * ACTIVITY 10
          *
          */
-        try(Scanner sc = new Scanner(System.in)) {
+        try (Scanner sc = new Scanner(System.in)) {
             String str = sc.nextLine();
             int tempInF = Integer.parseInt(str);
-            if (tempInF < 40) 
+            if (tempInF < 40)
                 System.out.println("Its brick out here");
             else if (tempInF <= 60)
                 System.out.println("It is ok");
             else
-                System.out.println("it is hot"); 
+                System.out.println("it is hot");
         } catch (Exception e) {
             System.err.println(e);
         }
@@ -145,6 +153,9 @@ public class Activities {
             this.hours = h;
             this.minutes = m;
             this.seconds = s;
+        }
+        public String toString() {
+            return hours + ":" + minutes + ":" + seconds;
         }
     }
 }
