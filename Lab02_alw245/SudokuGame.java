@@ -61,11 +61,11 @@ public class SudokuGame {
     private void goToMainMenu(int[][][][] allSudokuGames) {
         try (Scanner userInput = new Scanner(System.in)) {
             int chosenLevel = -1;
-            while (chosenLevel != 4) {
+             while (chosenLevel != 4) {
                 System.out.println("Enter level");
                 System.out.println("1) Beginner \n2) Intermediate \n3) Advanced \n4) Exit");
                 chosenLevel = Integer.parseInt(userInput.nextLine());
-                if (chosenLevel != 4) {
+                if (chosenLevel < 4) {
                     int[][][] gamesForLevel = getAllGamesForLevel(chosenLevel, allSudokuGames);
                     printGamesPerLevel(gamesForLevel);
                     System.out.println("What game do you want to play?");

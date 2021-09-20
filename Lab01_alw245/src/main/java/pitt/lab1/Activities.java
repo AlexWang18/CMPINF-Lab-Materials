@@ -13,7 +13,11 @@ import javax.swing.JOptionPane;
  *
  * @author alexw
  */
+
 public class Activities {
+
+    static Scanner input = new Scanner(System.in);
+
     public static void main(String[] args) {
         /*
          *
@@ -29,7 +33,6 @@ public class Activities {
         for (Object var : variables) {
             System.out.println(var);
         }
-
 
         System.out.println(convertSeconds(12345));
 
@@ -83,15 +86,12 @@ public class Activities {
          * ACTIVITY 8
          *
          */
-        System.out.println("Enter a num btw 10 and 20");
-        try (Scanner sc = new Scanner(System.in)) {
-            int input = Integer.parseInt(sc.nextLine());
-            while (!(input >= 10 && input <= 20)) {
-                System.out.println("Bad input, enter number between 10 and 20");
-                input = Integer.parseInt(sc.nextLine());
-            }
-        } catch (Exception e) {
-            System.err.println(e);
+
+        int num = Integer.parseInt(input.nextLine());
+        System.out.println("Enter num btw 10 and 20");
+        while (!(num >= 10 && num <= 20)) {
+            System.out.println("Bad input, enter number between 10 and 20");
+            num = Integer.parseInt(input.nextLine());
         }
 
         /*
@@ -108,18 +108,22 @@ public class Activities {
          * ACTIVITY 10
          *
          */
-        try (Scanner sc = new Scanner(System.in)) {
-            String str = sc.nextLine();
-            int tempInF = Integer.parseInt(str);
-            if (tempInF < 40)
-                System.out.println("Its brick out here");
-            else if (tempInF <= 60)
-                System.out.println("It is ok");
-            else
-                System.out.println("it is hot");
-        } catch (Exception e) {
-            System.err.println(e);
-        }
+        String str = input.nextLine();
+        System.out.println("Enter a temp");
+        int tempInF = Integer.parseInt(str);
+        if (tempInF < 40)
+            System.out.println("Its brick out here");
+        else if (tempInF <= 60)
+            System.out.println("It is ok");
+        else
+            System.out.println("it is hot");
+        /*
+         * try (Scanner sc = new Scanner(System.in)) { String str = sc.nextLine(); int
+         * tempInF = Integer.parseInt(str); if (tempInF < 40)
+         * System.out.println("Its brick out here"); else if (tempInF <= 60)
+         * System.out.println("It is ok"); else System.out.println("it is hot"); } catch
+         * (Exception e) { System.err.println(e); }
+         */
     }
 
     /*
@@ -154,6 +158,7 @@ public class Activities {
             this.minutes = m;
             this.seconds = s;
         }
+
         public String toString() {
             return hours + ":" + minutes + ":" + seconds;
         }
