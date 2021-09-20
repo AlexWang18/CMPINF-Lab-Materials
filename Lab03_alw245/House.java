@@ -1,16 +1,16 @@
 public class House implements Comparable<House> {
-    private String street; 
-    private String city; 
+    private String street;
+    private String city;
     private int zip;
     private String state;
     private int beds;
-    private int baths; 
+    private int baths;
     private int sqFeet;
-    private String type; 
+    private String type;
     private Date saleDate;
     private double price;
 
-    public House (String input) {
+    public House(String input) {
         String[] strs = input.split(",");
         street = strs[0];
         city = strs[1];
@@ -28,8 +28,13 @@ public class House implements Comparable<House> {
         return this.price;
     }
 
+    @Override
+    public int compareTo(House h) {
+        return Double.compare(this.price, h.price);
+    }
+
     public void print() {
-        System.out.println("Street: " + street); 
+        System.out.println("Street: " + street);
         System.out.println("City: " + city);
         System.out.println("Zip: " + zip);
         System.out.println("State: " + state);
@@ -40,7 +45,7 @@ public class House implements Comparable<House> {
         saleDate.print();
         System.out.println("Price: $" + price);
     }
-    
+
     private class Date {
         String dayOfWeek;
         String month;
@@ -51,7 +56,8 @@ public class House implements Comparable<House> {
         int seconds;
         String timeZone;
         int year;
-        Date (String date) {
+
+        Date(String date) {
             String[] data = date.split(" ");
             dayOfWeek = data[0];
             month = data[1];
@@ -64,17 +70,13 @@ public class House implements Comparable<House> {
             timeZone = data[4];
             year = Integer.parseInt(data[5]);
         }
-        public void print() {
-            System.out.print("Sale date: " + dayOfWeek + " " + month + " " + day + " " );
-            for (int i = 0; i < time.length; i++) {
-                System.out.print(time[i]+ ":");
-            }
-            System.out.println(" " + timeZone +" " + year);
-        }
-    }
 
-    @Override
-    public int compareTo(House h) {
-        return Double.compare(this.price, h.price);
+        public void print() {
+            System.out.print("Sale date: " + dayOfWeek + " " + month + " " + day + " ");
+            for (int i = 0; i < time.length; i++) {
+                System.out.print(time[i] + ":");
+            }
+            System.out.println(" " + timeZone + " " + year);
+        }
     }
 }

@@ -11,30 +11,30 @@ public class Lab03_alw245 {
 
     public Lab03_alw245(String file) throws FileNotFoundException {
         homes = readListings(new Scanner(new File(file)));
-        Collections.sort(homes);
+        Collections.sort(homes); // by price
         mainMenu();
     }
 
     private ArrayList<House> readListings(Scanner fileR) {
         ArrayList<House> homes = new ArrayList<House>();
-        String fake = fileR.nextLine(); // eat the first line
-        while(fileR.hasNextLine()) {
+        String labels = fileR.nextLine(); // eat the first line
+
+        while (fileR.hasNextLine()) {
             String str = fileR.nextLine();
             homes.add(new House(str));
         }
-        
+
         return homes;
     }
 
     void mainMenu() {
-        
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to my Real Estate Company!\nChoose a price range");
         System.out.print("From: ");
         int lower = Integer.parseInt(sc.nextLine());
         System.out.print("To: ");
         int upper = Integer.parseInt(sc.nextLine());
-        
+
         sc.close();
 
         if (upper < lower) {
@@ -47,10 +47,10 @@ public class Lab03_alw245 {
             return;
         }
 
-        for (House house : homes) {    
+        for (House house : homes) { // by sorting it, we iterate less
             if (house.price() >= lower && house.price() <= upper) {
                 house.print();
-            System.out.println("================================");
+                System.out.println("================================");
             }
             if (house.price() > upper)
                 break; // doneeee
@@ -60,9 +60,9 @@ public class Lab03_alw245 {
     public static void main(String[] args) throws FileNotFoundException {
         if (args.length < 1) {
             new Lab03_alw245("real_estate_listing.txt");
-        } else 
+        } else
             new Lab03_alw245(args[0]);
-        
+
     }
-    
+
 }
