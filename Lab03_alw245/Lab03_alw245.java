@@ -27,6 +27,12 @@ public class Lab03_alw245 {
         return homes;
     }
 
+   /* private House[] readListings(Scanner fileReader) {
+        // Scan through the listings .txt file here
+        // Store each line in a String and put each line in an array of strings
+        // Create an array of Houses of equal size as and pass a String to the House c'tor
+    } */
+
     void mainMenu() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to my Real Estate Company!\nChoose a price range");

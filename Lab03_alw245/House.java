@@ -10,6 +10,14 @@ public class House implements Comparable<House> {
     private Date saleDate;
     private double price;
 
+    /*public House (String line) {
+        // Split the line into an array of Strings using the split method
+        // Assign the items of the array into our private fields (street,city,zip,etc)
+        // Use Double.parseDouble to coerce from String to double
+        // Main role of c'tor is to initialize the values (data) of the class
+    }*/
+
+
     public House(String input) {
         String[] strs = input.split(",");
         street = strs[0];
