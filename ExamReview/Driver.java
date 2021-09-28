@@ -18,6 +18,18 @@ public class Driver {
 	    for ( int i=0 ; i<arr.length-1 ; ++i )
 		    System.out.print( arr[i] + " " );
 
+
+
+        String partial = "hel";
+        String full = partial + "lo"; // hello
+
+        /*
+        ABA
+        BAD
+        ADA
+        */
+        char[][] crosswordBoard = new char[3][3];
+        
     }
     
 }
